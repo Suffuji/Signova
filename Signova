@@ -1,0 +1,109 @@
+namespace Analogy
+{
+    // .NET Standard
+
+    interface INetStandard10
+    {
+        void Primitives();
+        void Reflection();
+        void Tasks();
+        void Xml();
+        void Collections();
+        void Linq();
+    }
+
+    interface INetStandard11 : INetStandard10
+    {
+        void ConcurrentCollections();
+        void LinqParallel();
+        void Compression();
+        void HttpClient();
+    }
+
+    interface INetStandard12 : INetStandard11
+    {
+        void ThreadingTimer();
+    }
+
+    interface INetStandard13 : INetStandard12
+    {
+        //.NET Standard 1.3 specific APIs
+    }
+
+    // And so on ...
+
+
+    // .NET Framework
+
+    interface INetFramework45 : INetStandard11
+    {
+        void FileSystem();
+        void Console();
+        void ThreadPool();
+        void Crypto();
+        void WebSockets();
+        void Process();
+        void Drawing();
+        void SystemWeb();
+        void WPF();
+        void WindowsForms();
+        void WCF();
+    }
+
+    interface INetFramework451 : INetFramework45, INetStandard12
+    {
+        // .NET Framework 4.5.1 specific APIs
+    }
+
+    interface INetFramework452 : INetFramework451, INetStandard12
+    {
+        // .NET Framework 4.5.2 specific APIs
+    }
+
+    interface INetFramework46 : INetFramework452, INetStandard13
+    {
+        // .NET Framework 4.6 specific APIs
+    }
+
+    interface INetFramework461 : INetFramework46, INetStandard14
+    {
+        // .NET Framework 4.6.1 specific APIs
+    }
+
+    interface INetFramework462 : INetFramework461, INetStandard15
+    {
+        // .NET Framework 4.6.2 specific APIs
+    }
+
+    // .NET Core
+    interface INetCoreApp10 : INetStandard15
+    {
+        // TODO: .NET Core 1.0 specific APIs
+    }
+    // Windows Universal Platform
+    interface IWindowsUniversalPlatform : INetStandard13
+    {
+        void GPS();
+        void Xaml();
+    }
+
+    // Xamarin
+    interface IXamarinIOS : INetStandard15
+    {
+        void AppleAPIs();
+    }
+
+    interface IXamarinAndroid : INetStandard15
+    {
+        void GoogleAPIs();
+    }
+    // Future platform
+
+    interface ISomeFuturePlatform : INetStandard13
+    {
+        // A future platform chooses to implement a specific .NET Standard version.
+        // All libraries that target that version are instantly compatible with this new
+        // platform
+    }
+
+}
